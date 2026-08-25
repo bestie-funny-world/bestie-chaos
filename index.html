@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>BESTIE.EXE 😂</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+
+    min-height:100vh;
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffd6e8,
+        #ddd6ff,
+        #c9f6ff,
+        #fff0c9
+    );
+
+    background-size:400% 400%;
+
+    animation:bgMove 10s ease infinite;
+
+    overflow:hidden;
+
+}
+
+@keyframes bgMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+.container{
+
+    width:92%;
+
+    max-width:680px;
+
+    min-height:570px;
+
+    max-height:94vh;
+
+    overflow-y:auto;
+
+    background:
+    rgba(255,255,255,0.95);
+
+    border-radius:35px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    box-shadow:
+    0 25px 70px
+    rgba(0,0,0,0.20);
+
+    position:relative;
+
+}
+
+.screen{
+    display:none;
+}
+
+.screen.active{
+    display:block;
+}
+
+.character{
+
+    font-size:105px;
+
+    margin:10px;
+
+    animation:
+    float 2s infinite ease-in-out;
+
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+}
+
+h1{
+
+    font-size:34px;
+
+    margin:15px 0;
+
+}
+
+h2{
+
+    margin:15px 0;
+
+}
+
+p{
+
+    font-size:18px;
+
+    line-height:1.6;
+
+    margin:12px 0;
+
+}
+
+button{
+
+    border:none;
+
+    padding:15px 28px;
+
+    border-radius:30px;
+
+    margin:8px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:#ff69a6;
+
+    color:white;
+
+    transition:
+    transform .2s,
+    background .2s;
+
+}
+
+button:hover{
+
+    transform:scale(1.08);
+
+    background:#ff438f;
+
+}
+
+.option{
+
+    display:block;
+
+    width:92%;
+
+    margin:12px auto;
+
+    background:#f0f0ff;
+
+    color:#333;
+
+}
+
+.option:hover{
+
+    background:#dedcff;
+
+}
+
+input{
+
+    width:90%;
+
+    padding:15px;
+
+    border:2px solid #ddd;
+
+    border-radius:20px;
+
+    outline:none;
+
+    text-align:center;
+
+    font-size:17px;
+
+    margin:15px 0;
+
+}
+
+input:focus{
+
+    border-color:#ff69a6;
+
+}
+
+.fakeBox{
+
+    background:#f5f5ff;
+
+    border-radius:22px;
+
+    padding:20px;
+
+    margin:20px 0;
+
+}
+
+.loader{
+
+    width:85%;
+
+    height:14px;
+
+    background:#eee;
+
+    border-radius:20px;
+
+    margin:25px auto;
+
+    overflow:hidden;
+
+}
+
+.loaderBar{
+
+    height:100%;
+
+    width:0%;
+
+    background:#ff69a6;
+
+    transition:width .3s;
+
+}
+
+.progress{
+
+    width:90%;
+
+    height:10px;
+
+    background:#eee;
+
+    border-radius:20px;
+
+    margin:20px auto;
+
+    overflow:hidden;
+
+}
+
+.progressBar{
+
+    width:0%;
+
+    height:100%;
+
+    background:#ff69a6;
+
+    transition:.4s;
+
+}
+
+.small{
+
+    font-size:14px;
+
+    opacity:.65;
+
+}
+
+.bigResult{
+
+    font-size:29px;
+
+    font-weight:bold;
+
+    margin:20px 0;
+
+}
+
+.red{
+
+    color:#ff438f;
+
+    font-weight:bold;
+
+}
+
+.hidden{
+    display:none;
+}
+
+.confetti{
+
+    position:fixed;
+
+    top:-60px;
+
+    font-size:28px;
+
+    pointer-events:none;
+
+    animation:
+    fall 4s linear forwards;
+
+}
+
+@keyframes fall{
+
+    to{
+
+        transform:
+        translateY(110vh)
+        rotate(720deg);
+
+        opacity:0;
+
+    }
+
+}
+
+.shake{
+
+    animation:shake .45s;
+
+}
+
+@keyframes shake{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    25%{
+        transform:translateX(-12px);
+    }
+
+    75%{
+        transform:translateX(12px);
+    }
+
+}
+
+.pop{
+
+    animation:pop .5s;
+
+}
+
+@keyframes pop{
+
+    0%{
+        transform:scale(.5);
+        opacity:0;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- ================================= -->
+<!-- LOADING -->
+<!-- ================================= -->
+
+<div id="loading"
+class="screen active">
+
+<div class="character">
+🤖
+</div>
+
+<h1>
+BESTIE.EXE
+</h1>
+
+<p id="loadingText">
+Starting extremely unnecessary system...
+</p>
+
+<div class="loader">
+
+<div id="loadingBar"
+class="loaderBar">
+</div>
+
+</div>
+
+<p class="small">
+Please do not turn off the internet.
+This is extremely important.
+Probably.
+</p>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- WELCOME -->
+<!-- ================================= -->
+
+<div id="welcome"
+class="screen">
+
+<div class="character">
+🧸
+</div>
+
+<h1>
+WELCOME TO FUNNY WORLD 😂
+</h1>
+
+<p>
+Congratulations!
+</p>
+
+<p>
+You have been selected for
+an experiment of absolutely
+no scientific importance.
+</p>
+
+<div class="fakeBox">
+
+<p>
+<b>Purpose:</b>
+Make you laugh.
+</p>
+
+<p>
+<b>Success rate:</b>
+Probably.
+</p>
+
+<p>
+<b>Seriousness level:</b>
+0.00001%
+</p>
+
+</div>
+
+<button onclick="goName()">
+ENTER AT YOUR OWN RISK 😂
+</button>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- NAME -->
+<!-- ================================= -->
+
+<div id="nameScreen"
+class="screen">
+
+<div class="character">
+🧐
+</div>
+
+<h1>
+WAIT...
+</h1>
+
+<p>
+The system needs to know
+who is wasting their time here.
+</p>
+
+<input
+id="nameInput"
+type="text"
+placeholder="Enter your name 😭"
+maxlength="25">
+
+<br>
+
+<button onclick="saveName()">
+CONTINUE →
+</button>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- SECURITY -->
+<!-- ================================= -->
+
+<div id="security"
+class="screen">
+
+<div class="character">
+🔐
+</div>
+
+<h1>
+SECURITY CHECK
+</h1>
+
+<p>
+We need to confirm something.
+</p>
+
+<div class="fakeBox">
+
+<h2>
+Are you really
+<span id="nameHere">
+you
+</span>?
+</h2>
+
+<button onclick="securityNo()">
+NO 😭
+</button>
+
+<button onclick="securityYes()">
+YES 😂
+</button>
+
+</div>
+
+<p id="securityMessage"></p>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- FAKE SCAN -->
+<!-- ================================= -->
+
+<div id="scan"
+class="screen">
+
+<div class="character">
+🧠
+</div>
+
+<h1>
+SCANNING...
+</h1>
+
+<p id="scanText">
+Checking brain activity...
+</p>
+
+<div class="loader">
+
+<div id="scanBar"
+class="loaderBar">
+</div>
+
+</div>
+
+<p class="small">
+Please remain still.
+Your brain is currently being judged.
+</p>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- QUIZ -->
+<!-- ================================= -->
+
+<div id="quiz"
+class="screen">
+
+<p id="questionNumber"
+class="red">
+Question
+</p>
+
+<div class="progress">
+
+<div id="progressBar"
+class="progressBar">
+</div>
+
+</div>
+
+<div class="character"
+style="font-size:70px;">
+🤨
+</div>
+
+<h2 id="question">
+Question
+</h2>
+
+<div id="options">
+</div>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- ANALYSIS -->
+<!-- ================================= -->
+
+<div id="analysis"
+class="screen">
+
+<div class="character">
+👨‍🔬
+</div>
+
+<h1>
+AI ANALYSIS 🧠
+</h1>
+
+<p id="analysisText">
+Uploading answers...
+</p>
+
+<div class="loader">
+
+<div id="analysisBar"
+class="loaderBar">
+</div>
+
+</div>
+
+<p class="small">
+Three imaginary scientists are working very hard.
+</p>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- RESULT -->
+<!-- ================================= -->
+
+<div id="result"
+class="screen">
+
+<div class="character">
+🤣
+</div>
+
+<h1>
+RESULTS ARE READY!
+</h1>
+
+<p>
+After reviewing the evidence,
+the highly qualified imaginary
+scientists have decided that:
+</p>
+
+<div id="resultTitle"
+class="bigResult">
+</div>
+
+<p id="resultDescription">
+</p>
+
+<button onclick="certificate()">
+VIEW OFFICIAL CERTIFICATE 🏆
+</button>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- CERTIFICATE -->
+<!-- ================================= -->
+
+<div id="certificate"
+class="screen">
+
+<div class="character">
+🏆
+</div>
+
+<h1>
+OFFICIAL CERTIFICATE
+</h1>
+
+<div class="fakeBox">
+
+<p>
+This officially certifies that
+</p>
+
+<h2 id="certificateName">
+BESTIE
+</h2>
+
+<p>
+has successfully completed:
+</p>
+
+<h2>
+THE COMPLETELY UNNECESSARY
+FUNNY WORLD TEST
+</h2>
+
+<br>
+
+<p>
+Certified skills include:
+</p>
+
+<p>
+
+😂 Professional nonsense<br>
+😴 Advanced procrastination<br>
+🤨 Suspicious decision making<br>
+🍟 Snack detection<br>
+🎭 Unnecessary reactions<br>
+🧠 Questionable brain activity
+
+</p>
+
+</div>
+
+<button onclick="finalReveal()">
+WAIT... ONE LAST THING 👀
+</button>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- FINAL -->
+<!-- ================================= -->
+
+<div id="final"
+class="screen">
+
+<div class="character">
+🥳
+</div>
+
+<h1>
+MISSION COMPLETED!
+</h1>
+
+<p>
+
+Congratulations,
+<span id="finalName">
+Bestie
+</span>!
+
+</p>
+
+<p>
+You have officially survived
+the most unnecessary website
+ever created.
+</p>
+
+<div class="fakeBox">
+
+<h2>
+🏆 FINAL STATUS
+</h2>
+
+<p>
+✨ Certified Bestie<br>
+✨ Professional Chaos Creator<br>
+✨ Full-Time Nonsense Specialist<br>
+✨ Part-Time Responsible Human
+</p>
+
+</div>
+
+<p>
+No money was won.
+No prize was found.
+No useful information was obtained.
+</p>
+
+<h2>
+BUT YOU LAUGHED. 😂
+</h2>
+
+<p>
+And honestly...
+that's the whole point.
+</p>
+
+<button onclick="celebrate()">
+RELEASE THE CONFETTI 🎉
+</button>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* ===================================
+   GLOBAL
+=================================== */
+
+let bestieName = "Bestie";
+
+let currentQuestion = 0;
+
+let score = 0;
+
+
+
+/* ===================================
+   SCREEN CHANGER
+=================================== */
+
+function showScreen(id){
+
+    document
+    .querySelectorAll(".screen")
+    .forEach(function(screen){
+
+        screen.classList.remove("active");
+
+    });
+
+    document
+    .getElementById(id)
+    .classList.add("active");
+
+}
+
+
+
+/* ===================================
+   LOADING
+=================================== */
+
+let loadingProgress = 0;
+
+let loadingMessages = [
+
+"Starting extremely unnecessary system...",
+
+"Searching for common sense...",
+
+"Common sense not detected 😂",
+
+"Checking bestie privileges...",
+
+"Installing happiness...",
+
+"Preparing nonsense...",
+
+"Almost ready..."
+
+];
+
+let loadingIndex = 0;
+
+let loadingInterval =
+setInterval(function(){
+
+    loadingProgress += 10;
+
+    document
+    .getElementById("loadingBar")
+    .style.width =
+    loadingProgress + "%";
+
+
+    if(
+        loadingProgress % 20 === 0 &&
+        loadingIndex < loadingMessages.length - 1
+    ){
+
+        loadingIndex++;
+
+        document
+        .getElementById("loadingText")
+        .innerText =
+        loadingMessages[loadingIndex];
+
+    }
+
+
+    if(loadingProgress >= 100){
+
+        clearInterval(loadingInterval);
+
+        setTimeout(function(){
+
+            showScreen("welcome");
+
+        },600);
+
+    }
+
+},300);
+
+
+
+/* ===================================
+   NAME
+=================================== */
+
+function goName(){
+
+    showScreen("nameScreen");
+
+}
+
+
+function saveName(){
+
+    let input =
+    document.getElementById("nameInput").value.trim();
+
+
+    if(input === ""){
+
+        document
+        .getElementById("nameInput")
+        .classList.add("shake");
+
+        setTimeout(function(){
+
+            document
+            .getElementById("nameInput")
+            .classList.remove("shake");
+
+        },500);
+
+        return;
+
+    }
+
+
+    bestieName = input;
+
+
+    document
+    .getElementById("nameHere")
+    .innerText =
+    bestieName;
+
+
+    document
+    .getElementById("certificateName")
+    .innerText =
+    bestieName;
+
+
+    document
+    .getElementById("finalName")
+    .innerText =
+    bestieName;
+
+
+    showScreen("security");
+
+}
+
+
+
+/* ===================================
+   SECURITY
+=================================== */
+
+function securityNo(){
+
+    document
+    .getElementById("securityMessage")
+    .innerText =
+    "LMAO 😂 Then why did you enter your name?!";
+
+}
+
+
+function securityYes(){
+
+    document
+    .getElementById("securityMessage")
+    .innerText =
+    "Identity confirmed. Unfortunately. 😂";
+
+    setTimeout(function(){
+
+        startScan();
+
+    },1000);
+
+}
+
+
+
+/* ===================================
+   SCAN
+=================================== */
+
+function startScan(){
+
+    showScreen("scan");
+
+    let progress = 0;
+
+    let bar =
+    document.getElementById("scanBar");
+
+    let text =
+    document.getElementById("scanText");
+
+
+    let messages = [
+
+        "Checking brain activity...",
+
+        "Detecting nonsense levels...",
+
+        "Measuring procrastination...",
+
+        "Checking snack dependency...",
+
+        "Calculating chaos percentage...",
+
+        "Searching for common sense...",
+
+        "No common sense found 😂",
+
+        "Finalizing diagnosis..."
+
+    ];
+
+    let index = 0;
+
+
+    let interval =
+    setInterval(function(){
+
+        progress += 10;
+
+        bar.style.width =
+        progress + "%";
+
+
+        if(
+            progress % 10 === 0 &&
+            index < messages.length
+        ){
+
+            text.innerText =
+            messages[index];
+
+            index++;
+
+        }
+
+
+        if(progress >= 100){
+
+            clearInterval(interval);
+
+            setTimeout(function(){
+
+                startQuiz();
+
+            },700);
+
+        }
+
+    },300);
+
+}
+
+
+
+/* ===================================
+   QUESTIONS
+=================================== */
+
+const questions = [
+
+{
+
+question:
+"Someone says 'I'll be there in 5 minutes.' What does that REALLY mean?",
+
+options:[
+
+"Exactly 5 minutes",
+
+"Maybe 10 minutes",
+
+"Probably 30 minutes",
+
+"They have entered another timeline 😂"
+
+]
+
+},
+
+{
+
+question:
+"Your phone is at 1%. What is your strategy?",
+
+options:[
+
+"Find a charger immediately",
+
+"Turn on battery saver",
+
+"Say goodbye to everyone",
+
+"Keep scrolling until destiny decides"
+
+]
+
+},
+
+{
+
+question:
+"You have an exam tomorrow. What are you doing tonight?",
+
+options:[
+
+"Studying seriously",
+
+"Making a study schedule",
+
+"Watching ONE video",
+
+"Somehow watching 46 videos 😂"
+
+]
+
+},
+
+{
+
+question:
+"Someone texts: 'We need to talk.' What happens?",
+
+options:[
+
+"Stay calm",
+
+"Ask what happened",
+
+"Start overthinking",
+
+"Replay every event since birth"
+
+]
+
+},
+
+{
+
+question:
+"What's your relationship with alarms?",
+
+options:[
+
+"I wake up immediately",
+
+"I snooze once",
+
+"I snooze a few times",
+
+"The alarm has given up on me"
+
+]
+
+},
+
+{
+
+question:
+"Your friend says: 'Don't laugh.'",
+
+options:[
+
+"I stay serious",
+
+"I smile a little",
+
+"I try not to laugh",
+
+"I immediately lose the battle 😂"
+
+]
+
+},
+
+{
+
+question:
+"Choose your greatest superpower.",
+
+options:[
+
+"Sleeping anywhere",
+
+"Finding food",
+
+"Procrastinating",
+
+"Making simple situations complicated"
+
+]
+
+},
+
+{
+
+question:
+"What happens when you say 'I'll do it later'?",
+
+options:[
+
+"I actually do it",
+
+"I remember eventually",
+
+"I forget",
+
+"It becomes someone else's problem"
+
+]
+
+},
+
+{
+
+question:
+"Which one describes your brain best?",
+
+options:[
+
+"Organized",
+
+"Mostly functional",
+
+"Random tabs everywhere",
+
+"404: Thought Not Found 🤖"
+
+]
+
+},
+
+{
+
+question:
+"FINAL QUESTION. Be honest. Are you enjoying this?",
+
+options:[
+
+"No",
+
+"Maybe",
+
+"Absolutely",
+
+"I have no idea how I got here 😂"
+
+]
+
+}
+
+];
+
+
+
+/* ===================================
+   QUIZ
+=================================== */
+
+function startQuiz(){
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    showScreen("quiz");
+
+    showQuestion();
+
+}
+
+
+function showQuestion(){
+
+    let q =
+    questions[currentQuestion];
+
+
+    document
+    .getElementById("questionNumber")
+    .innerText =
+    "QUESTION " +
+    (currentQuestion + 1) +
+    " / " +
+    questions.length;
+
+
+    document
+    .getElementById("progressBar")
+    .style.width =
+    (
+        currentQuestion /
+        questions.length *
+        100
+    ) + "%";
+
+
+    document
+    .getElementById("question")
+    .innerText =
+    q.question;
+
+
+    let options =
+    document.getElementById("options");
+
+    options.innerHTML = "";
+
+
+    q.options.forEach(function(option,index){
+
+        let button =
+        document.createElement("button");
+
+
+        button.className =
+        "option";
+
+
+        button.innerText =
+        option;
+
+
+        button.onclick =
+        function(){
+
+            answer(index);
+
+        };
+
+
+        options.appendChild(button);
+
+    });
+
+}
+
+
+function answer(index){
+
+    score += index;
+
+    currentQuestion++;
+
+
+    if(currentQuestion <
+    questions.length){
+
+        showQuestion();
+
+    }
+
+    else{
+
+        startAnalysis();
+
+    }
+
+}
+
+
+
+/* ===================================
+   ANALYSIS
+=================================== */
+
+function startAnalysis(){
+
+    showScreen("analysis");
+
+    let progress = 0;
+
+    let bar =
+    document.getElementById("analysisBar");
+
+    let text =
+    document.getElementById("analysisText");
+
+
+    let messages = [
+
+        "Uploading answers...",
+
+        "Comparing suspicious behavior...",
+
+        "Consulting imaginary scientists...",
+
+        "Checking chaos database...",
+
+        "Detecting nonsense patterns...",
+
+        "Calculating friendship compatibility...",
+
+        "The scientists are confused...",
+
+        "Final decision incoming..."
+
+    ];
+
+    let index = 0;
+
+
+    let interval =
+    setInterval(function(){
+
+        progress += 10;
+
+        bar.style.width =
+        progress + "%";
+
+
+        if(
+            progress % 10 === 0 &&
+            index < messages.length
+        ){
+
+            text.innerText =
+            messages[index];
+
+            index++;
+
+        }
+
+
+        if(progress >= 100){
+
+            clearInterval(interval);
+
+            setTimeout(function(){
+
+                showResult();
+
+            },500);
+
+        }
+
+    },350);
+
+}
+
+
+
+/* ===================================
+   RESULT
+=================================== */
+
+function showResult(){
+
+    showScreen("result");
+
+
+    let title;
+
+    let description;
+
+
+    if(score <= 9){
+
+        title =
+        "😇 SUSPICIOUSLY NORMAL";
+
+
+        description =
+        "Scientists are confused. You appear normal. Nobody knows how.";
+
+    }
+
+    else if(score <= 18){
+
+        title =
+        "😂 CERTIFIED CHAOS";
+
+
+        description =
+        "Your nonsense level has officially crossed the safe limit.";
+
+    }
+
+    else if(score <= 27){
+
+        title =
+        "🤡 PROFESSIONAL MENACE";
+
+
+        description =
+        "Researchers recommend keeping you away from serious situations.";
+
+    }
+
+    else if(score <= 34){
+
+        title =
+        "👑 CEO OF NONSENSE";
+
+
+        description =
+        "You have reached executive level nonsense. Congratulations.";
+
+    }
+
+    else{
+
+        title =
+        "🚨 LEGENDARY CHAOS";
+
+
+        description =
+        "The system has stopped calculating because your answers broke the calculator.";
+
+    }
+
+
+    document
+    .getElementById("resultTitle")
+    .innerText =
+    title;
+
+
+    document
+    .getElementById("resultDescription")
+    .innerText =
+    description;
+
+}
+
+
+
+/* ===================================
+   CERTIFICATE
+=================================== */
+
+function certificate(){
+
+    showScreen("certificate");
+
+}
+
+
+
+/* ===================================
+   FINAL
+=================================== */
+
+function finalReveal(){
+
+    showScreen("final");
+
+    celebrate();
+
+}
+
+
+
+/* ===================================
+   CONFETTI
+=================================== */
+
+function celebrate(){
+
+    let emojis = [
+
+        "🎉",
+        "😂",
+        "🤣",
+        "🥳",
+        "✨",
+        "🎊",
+        "⭐",
+        "💫",
+        "🎈",
+        "😭"
+
+    ];
+
+
+    for(let i=0;i<70;i++){
+
+        let piece =
+        document.createElement("div");
+
+
+        piece.className =
+        "confetti";
+
+
+        piece.innerText =
+        emojis[
+            Math.floor(
+                Math.random() *
+                emojis.length
+            )
+        ];
+
+
+        piece.style.left =
+        Math.random() *
+        100 +
+        "vw";
+
+
+        piece.style.animationDuration =
+        (
+            2 +
+            Math.random() * 4
+        ) + "s";
+
+
+        piece.style.animationDelay =
+        Math.random() * 1.5 + "s";
+
+
+        document.body
+        .appendChild(piece);
+
+
+        setTimeout(function(){
+
+            piece.remove();
+
+        },6500);
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
